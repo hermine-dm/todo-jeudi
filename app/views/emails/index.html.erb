@@ -1,2 +1,31 @@
-<h1>Emails#index</h1>
-<p>Find me in app/views/emails/index.html.erb</p>
+<h1 class="text-center mb-4">Welcome to your email box</h1>
+<div class="text-center my-3 ">
+	<%= form_tag(emails_path, method: "post", class: "form", remote: true)  do %>
+		<%= submit_tag("Recevoir un email", class: "btn btn-start-order") %>
+    <%end%>
+</div>
+<div class="container row m-auto pb-5">
+	<div class="col-4 pr-0 ">
+	    <ul id="email-list">
+	    	<li class="row border bg-light pl-3 pt-2">
+	  			<h5> Liste des emails  </h5>
+	  		</li>
+	      	<% @emails.each do |email|  %>
+		      	<li class="row border pl-3" id="<%= email.id%>">
+		        	<%= link_to "#{email.object}", email_path(email.id), remote: true, :class => "text-secondary" %>
+			    </li>
+	      	<% end %>
+	    </ul>
+	</div>
+	<div class="col-8 pl-0 ">
+		<ul>
+	    	<li class="row border bg-light pl-3 pt-2">
+	  			<h5> Email selectionné  </h5>
+	  		</li>
+	  		<li class="row pl-3" id="content-email">
+	  			
+			</li>
+	      	
+	    </ul>
+	</div>
+</div>

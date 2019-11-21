@@ -1,0 +1,10 @@
+<h1 class="text-center mb-4">Your Email </h1>
+<div class="container pt-2">
+	<h13 class=""> <strong>Object :</strong> <%= email.object %> </h1>
+	<div class=""> <strong>Content :</strong> <%= email.body %> </div>
+	<div class="pt-2"> 
+		<!-- check_box_tag :status, true, false, data: { remote: true, url: email_path(@email.id), params:{status: false}.to_param, method: "put" }%>-->
+	    <%= link_to 'Supprimer', email_path(email.id), remote: true, data: {:confirm => 'Are you sure?'}, :method => :delete, :class => "btn btn-primary"  %> 
+	    <%= link_to 'Marquer comme non-lu', :class => "btn btn-lg btn-outline-primary"  %> 
+	</div>  
+</div>
