@@ -7,19 +7,23 @@
 <div class="container row m-auto pb-5">
 	<div class="col-4 pr-0 ">
 	    <ul id="email-list">
-	    	<li class="row border bg-light pl-3 pt-2">
+	    	<li class="row border bg-secondary pl-3 pt-2 text-light">
 	  			<h5> Liste des emails  </h5>
 	  		</li>
 	      	<% @emails.each do |email|  %>
 		      	<li class="row border pl-3" id="<%= email.id%>">
-		        	<%= link_to "#{email.object}", email_path(email.id), remote: true, :class => "text-secondary" %>
-			    </li>
+		      		<% if email.read == true %> 
+		        		<%= link_to "#{email.object}", email_path(email.id), remote: true, :class => "text-secondary"%>
+		        	<%else%>
+		        		<%= link_to "#{email.object}", email_path(email.id), remote: true, :class => "text-secondary font-weight-bold"%>
+		        	<%end%>
+				</li>
 	      	<% end %>
 	    </ul>
 	</div>
 	<div class="col-8 pl-0 ">
 		<ul>
-	    	<li class="row border bg-light pl-3 pt-2">
+	    	<li class="row border bg-secondary pl-3 pt-2 text-light">
 	  			<h5> Email selectionné  </h5>
 	  		</li>
 	  		<li class="row pl-3" id="content-email">

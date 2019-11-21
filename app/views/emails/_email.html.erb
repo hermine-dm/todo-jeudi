@@ -1,3 +1,7 @@
-<li class="row border pl-3" id="email-list">
-	<%= email.object  %>
+<li class="row border pl-3" id="<%= email.id%>">
+	<% if email.read == true %> 
+		<%= link_to "#{email.object}", email_path(email.id), remote: true, :class => "text-secondary"%>
+	<%else%>
+		<%= link_to "#{email.object}", email_path(email.id), remote: true, :class => "text-secondary font-weight-bold"%>
+	<%end%>
 </li>
